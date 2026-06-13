@@ -40,6 +40,7 @@ Start here:
 
 - `docs/00-start-here.md`
 - `docs/01-reference-architecture.md`
+- `docs/02-workload-placement-matrix.md`
 - `docs/03-well-architected-mapping.md`
 - `docs/decision-records/`
 - `docs/runbooks/`
