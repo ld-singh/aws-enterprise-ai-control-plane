@@ -1,4 +1,4 @@
-# ADR-005: Trainium/Inferentia vs NVIDIA GPU
+# ADR-005: AWS Trainium/AWS Inferentia vs NVIDIA GPU
 
 ## Status
 
@@ -10,7 +10,7 @@ AWS AI infrastructure can use AWS-designed accelerators or NVIDIA GPU-based plat
 
 ## Decision
 
-Evaluate Trainium/Inferentia for AWS-native cost/performance optimization where framework and model compatibility are acceptable. Use NVIDIA GPU platforms where ecosystem compatibility, CUDA/NCCL maturity, specific model support, or hybrid/on-prem portability are stronger requirements.
+Evaluate AWS Trainium/AWS Inferentia for AWS-native cost/performance optimization where framework and model compatibility are acceptable. Use NVIDIA GPU platforms where ecosystem compatibility, CUDA/NCCL maturity, specific model support, or hybrid/on-premises portability are stronger requirements.
 
 ## Consequences
 

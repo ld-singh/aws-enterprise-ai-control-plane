@@ -1,29 +1,48 @@
-# Start here
+# Start Here
 
-This project is not a toy chatbot and not a basic Kubernetes demo.
+## Project thesis
 
-It is an architecture asset showing how a senior cloud/platform engineer would design an enterprise AI platform on AWS, while leaving room for GPU, HPC, Slurm, and NVIDIA-style AI factory designs.
+Enterprise AI architecture is primarily a control-plane problem: organizations must consistently govern who can use models, tools, data, and accelerator capacity; decide where each workload belongs; and measure reliability, security, and cost across multiple execution platforms.
 
-## First milestone
+This reference architecture organizes those concerns around shared enterprise controls and a portfolio of AWS workload platforms. It favors managed services where they meet the requirement and introduces customer-managed infrastructure only when runtime control, workload semantics, portability, or measured economics justify the additional operational ownership.
 
-Create an architecture pack that can be reviewed in 5 minutes:
+> **Design boundary:** This material describes target-state patterns and tradeoffs. It is not a turnkey deployment or an AWS-endorsed architecture. Service availability, quotas, security controls, performance, and fitness must be validated for each workload and organization.
 
-- README
-- Reference architecture diagram
-- Architecture thesis
-- Decision matrix
-- Well-Architected mapping
-- Security and governance model
-- Observability model
-- Cost and capacity model
-- 3 runbooks
-- 5 ADRs
+## Target architecture
 
-## Build order
+The target scope is an enterprise AI control plane spanning:
 
-1. Write the architecture narrative.
-2. Create the Mermaid diagrams.
-3. Add decision records.
-4. Add local simulation lab.
-5. Add AWS deployment blueprint.
-6. Add security, observability, and cost models.
+- shared identity, authorization, network, data, audit, policy, and cost controls;
+- managed foundation-model and agent workloads on Amazon Bedrock and Amazon Bedrock AgentCore;
+- custom model serving and GPU scheduling on Amazon EKS;
+- managed ML lifecycle and distributed training on Amazon SageMaker AI and Amazon SageMaker HyperPod;
+- HPC and queued batch workloads on AWS ParallelCluster + Slurm;
+- accelerator selection across AWS Trainium, AWS Inferentia, and NVIDIA GPUs; and
+- observability, SLOs, capacity management, incident response, and workload-level unit economics.
+
+It does not provide a turnkey deployment, prescribe one platform for every workload, or replace workload-specific security review, benchmarking, quota validation, and cost analysis.
+
+## Reading guide
+
+| Document | Question it answers |
+|---|---|
+| [README](../README.md) | What is this repository, and what is in scope? |
+| [Reference architecture](01-reference-architecture.md) | What components and control-plane responsibilities make up the target design? |
+| [Workload placement matrix](02-workload-placement-matrix.md) | Which platform and accelerator fit a given workload and operating model? |
+| [Well-Architected mapping](03-well-architected-mapping.md) | How does the design address operational excellence, security, reliability, performance, cost, and sustainability? |
+| [Decision records](decision-records/) | Why were the major platform boundaries and defaults selected? |
+| [Runbooks](runbooks/) | What would example operational response procedures look like? |
+| [Diagrams](diagrams/) | Where are the visual architecture materials described? |
+
+## Suggested paths
+
+| If you have... | Read... |
+|---|---|
+| A quick orientation | The README's **Architecture thesis** and **Architecture scope** sections |
+| 5 minutes | The [reference architecture](01-reference-architecture.md), then the [placement matrix](02-workload-placement-matrix.md) |
+| A platform decision to make | The [placement matrix](02-workload-placement-matrix.md) and relevant [decision record](decision-records/) |
+| A design review to prepare | The [Well-Architected mapping](03-well-architected-mapping.md), then the [runbooks](runbooks/) |
+
+## How to use this material
+
+Treat the defaults as hypotheses. For each workload, validate data boundaries, regional service support, model and framework compatibility, quotas, failure modes, operational ownership, performance, and total cost before selecting a platform.

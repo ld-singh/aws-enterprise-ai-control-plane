@@ -1,4 +1,4 @@
-# ADR-002: AgentCore vs Custom Agent Runtime
+# ADR-002: Amazon Bedrock AgentCore vs Custom Agent Runtime
 
 ## Status
 
@@ -10,7 +10,7 @@ Production agents need runtime isolation, tool access control, memory, identity,
 
 ## Decision
 
-Use Bedrock AgentCore as the primary reference path for enterprise AWS agent workloads. Allow custom agent runtimes only where framework constraints, portability, or specialized control requirements justify the extra platform burden.
+Use Amazon Bedrock AgentCore as the primary reference path for enterprise AWS agent workloads. Allow custom agent runtimes only where framework constraints, portability, or specialized control requirements justify the extra platform burden.
 
 ## Rationale
 
@@ -18,4 +18,4 @@ Managed identity, gateway, memory, runtime, and observability reduce undifferent
 
 ## Consequences
 
-The architecture must still define strong IAM boundaries, tool access controls, VPC connectivity patterns, and agent evaluation requirements.
+The architecture must still define strong AWS IAM boundaries, tool access controls, Amazon VPC connectivity patterns, and agent evaluation requirements.

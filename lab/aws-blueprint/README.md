@@ -8,9 +8,9 @@ Planned options:
 
 - Terraform module skeleton
 - AWS CDK sample skeleton
-- architecture-only CloudFormation snippets
-- IAM policy examples
-- VPC endpoint patterns
+- architecture-only AWS CloudFormation snippets
+- AWS IAM policy examples
+- Amazon VPC endpoint patterns
 - observability wiring examples
 
 ## Rule
