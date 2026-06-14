@@ -4,18 +4,18 @@
 
 ```mermaid
 flowchart LR
-    Users[Users / Enterprise Apps] --> APIGW[API Gateway / App Load Balancer]
+    Users[Users / Enterprise Apps] --> APIGW[Amazon API Gateway / Application Load Balancer]
     APIGW --> Auth[Identity / AuthZ / Policy Layer]
     Auth --> Router[AI Request Router]
 
-    Router --> Bedrock[Amazon Bedrock / AgentCore]
-    Router --> EKS[EKS AI Workload Platform]
-    Router --> SageMaker[SageMaker / HyperPod]
-    Router --> HPC[AWS ParallelCluster / Slurm]
+    Router --> Bedrock[Amazon Bedrock / Amazon Bedrock AgentCore]
+    Router --> EKS[Amazon EKS AI Workload Platform]
+    Router --> SageMaker[Amazon SageMaker AI / Amazon SageMaker HyperPod]
+    Router --> HPC[AWS ParallelCluster + Slurm]
     Router --> External[Neo Cloud / NVIDIA AI Factory]
 
-    Bedrock --> KB[Knowledge Bases / Vector Store]
-    Bedrock --> Tools[Agent Tools via Gateway / Lambda / APIs]
+    Bedrock --> KB[Knowledge Bases for Amazon Bedrock / Vector Store]
+    Bedrock --> Tools[Agent Tools via Amazon Bedrock AgentCore Gateway / AWS Lambda / APIs]
 
     EKS --> VLLM[vLLM / Triton / NIM-compatible Serving]
     EKS --> Kueue[Kueue / Scheduler Layer]
@@ -25,14 +25,14 @@ flowchart LR
     HPC --> Batch[HPC / Batch Workloads]
 
     subgraph Governance
-      IAM[IAM / IAM Identity Center]
-      SCP[SCPs / Permission Boundaries]
+      IAM[AWS IAM / AWS IAM Identity Center]
+      SCP[AWS Organizations SCPs / AWS IAM Permission Boundaries]
       Guardrails[Guardrails / Policy]
-      Cost[Budgets / CUR / Cost Allocation]
+      Cost[AWS Budgets / AWS Cost and Usage Reports / Cost Allocation]
     end
 
     subgraph Observability
-      CW[CloudWatch]
+      CW[Amazon CloudWatch]
       Prom[Prometheus]
       Grafana[Grafana]
       Logs[Central Logs]
@@ -52,7 +52,7 @@ flowchart LR
 The AI control plane must answer:
 
 - Who can access which model, tool, data source, and environment?
-- Which workloads run on Bedrock, EKS, SageMaker, Slurm, Trainium, Inferentia, or NVIDIA GPU platforms?
+- Which workloads run on Amazon Bedrock, Amazon EKS, Amazon SageMaker AI, AWS ParallelCluster + Slurm, AWS Trainium, AWS Inferentia, or NVIDIA GPU platforms?
 - How are inference SLOs measured?
 - How are GPU and token costs attributed?
 - How are tenant boundaries enforced?
@@ -63,9 +63,9 @@ The AI control plane must answer:
 
 | Area | Default choice | Reason |
 |---|---|---|
-| Enterprise agent runtime | Bedrock AgentCore | Managed agent runtime, identity, gateway, memory, and observability |
-| General enterprise RAG | Bedrock Knowledge Bases | Managed retrieval path and lower platform burden |
-| Custom model inference | EKS + vLLM/Triton | Better control over serving, scaling, and custom runtime needs |
-| Distributed training | SageMaker HyperPod or EKS | Depends on team maturity and workload scale |
+| Enterprise agent runtime | Amazon Bedrock AgentCore | Managed agent runtime, identity, gateway, memory, and observability |
+| General enterprise RAG | Knowledge Bases for Amazon Bedrock | Managed retrieval path and lower platform burden |
+| Custom model inference | Amazon EKS + vLLM/Triton | Better control over serving, scaling, and custom runtime needs |
+| Distributed training | Amazon SageMaker HyperPod or Amazon EKS | Depends on team maturity and workload scale |
 | HPC batch | AWS ParallelCluster + Slurm | Better cultural and scheduler fit for HPC-style workloads |
 | GPU-heavy AI factory | NVIDIA stack / Neo Cloud / on-prem | Best for sustained GPU-heavy platforms and specialized networking |

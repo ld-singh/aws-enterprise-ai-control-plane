@@ -1,4 +1,4 @@
-# ADR-001: Bedrock vs EKS for Inference Workloads
+# ADR-001: Amazon Bedrock vs Amazon EKS for Inference Workloads
 
 ## Status
 
@@ -10,11 +10,11 @@ Enterprise AI platforms often need both managed foundation model access and cust
 
 ## Decision
 
-Use Amazon Bedrock as the default for managed foundation model workloads and EKS-based serving for custom model inference, open-source models, specialized serving stacks, or workloads requiring deep runtime control.
+Use Amazon Bedrock as the default for managed foundation model workloads and Amazon EKS-based serving for custom model inference, open-source models, specialized serving stacks, or workloads requiring deep runtime control.
 
 ## Rationale
 
-Bedrock reduces operational burden for managed foundation model use cases. EKS offers deeper control over serving runtime, custom containers, networking, sidecars, model routing, scaling, and GPU scheduling.
+Amazon Bedrock reduces operational burden for managed foundation model use cases. Amazon EKS offers deeper control over serving runtime, custom containers, networking, sidecars, model routing, scaling, and GPU scheduling.
 
 ## Consequences
 

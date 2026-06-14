@@ -10,7 +10,7 @@ AI platforms often need to support online inference, batch jobs, distributed tra
 
 ## Decision
 
-Use Kubernetes/EKS for cloud-native online inference and platform workloads. Use Slurm via AWS ParallelCluster or equivalent for HPC-style workloads where scheduling semantics, user expectations, and MPI/HPC ecosystem alignment are stronger.
+Use Kubernetes on Amazon EKS for cloud-native online inference and platform workloads. Use AWS ParallelCluster + Slurm, or an equivalent platform, for HPC-style workloads where scheduling semantics, user expectations, and MPI/HPC ecosystem alignment are stronger.
 
 ## Rationale
 

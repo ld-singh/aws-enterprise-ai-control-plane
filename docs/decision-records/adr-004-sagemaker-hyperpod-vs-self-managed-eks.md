@@ -1,4 +1,4 @@
-# ADR-004: SageMaker HyperPod vs Self-Managed EKS
+# ADR-004: Amazon SageMaker HyperPod vs Self-Managed Amazon EKS
 
 ## Status
 
@@ -10,7 +10,7 @@ Large-scale training workloads require distributed orchestration, failure recove
 
 ## Decision
 
-Use SageMaker HyperPod for large-scale managed training environments where reduced operational burden and training-specific capabilities matter. Use self-managed EKS when platform teams need deeper control or when workloads are closer to inference/platform services.
+Use Amazon SageMaker HyperPod for large-scale managed training environments where reduced operational burden and training-specific capabilities matter. Use self-managed Amazon EKS when platform teams need deeper control or when workloads are closer to inference and platform services.
 
 ## Consequences
 

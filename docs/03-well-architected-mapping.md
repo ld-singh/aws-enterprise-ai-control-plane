@@ -10,9 +10,9 @@
 ## Security
 
 - Multi-account isolation
-- IAM Identity Center
-- SCPs and permission boundaries
-- VPC endpoints for private service access
+- AWS IAM Identity Center
+- AWS Organizations service control policies (SCPs) and AWS IAM permission boundaries
+- Amazon VPC endpoints for private service access
 - Tenant isolation patterns: silo, pool, bridge
 - Agent tool access policies
 - Secrets management
@@ -34,16 +34,16 @@
 - GPU utilization tracking
 - Autoscaling strategy
 - Token streaming and TTFT measurement
-- Workload routing between Bedrock, EKS, SageMaker, and HPC
+- Workload routing between Amazon Bedrock, Amazon EKS, Amazon SageMaker AI, and HPC platforms
 
 ## Cost Optimization
 
 - Cost allocation tags
 - Tenant-level chargeback/showback
 - GPU utilization dashboards
-- Bedrock token cost monitoring
+- Amazon Bedrock token cost monitoring
 - Spot/on-demand decision matrix
-- Trainium/Inferentia vs GPU evaluation
+- AWS Trainium/AWS Inferentia vs GPU evaluation
 
 ## Sustainability
 

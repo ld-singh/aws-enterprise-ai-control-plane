@@ -13,11 +13,11 @@ This reference architecture organizes those concerns around shared enterprise co
 The target scope is an enterprise AI control plane spanning:
 
 - shared identity, authorization, network, data, audit, policy, and cost controls;
-- managed foundation-model and agent workloads on Amazon Bedrock and AgentCore;
+- managed foundation-model and agent workloads on Amazon Bedrock and Amazon Bedrock AgentCore;
 - custom model serving and GPU scheduling on Amazon EKS;
-- managed ML lifecycle and distributed training on SageMaker and HyperPod;
-- HPC and queued batch workloads on AWS ParallelCluster and Slurm;
-- accelerator selection across Trainium, Inferentia, and NVIDIA GPUs; and
+- managed ML lifecycle and distributed training on Amazon SageMaker AI and Amazon SageMaker HyperPod;
+- HPC and queued batch workloads on AWS ParallelCluster + Slurm;
+- accelerator selection across AWS Trainium, AWS Inferentia, and NVIDIA GPUs; and
 - observability, SLOs, capacity management, incident response, and workload-level unit economics.
 
 It does not provide a turnkey deployment, prescribe one platform for every workload, or replace workload-specific security review, benchmarking, quota validation, and cost analysis.
