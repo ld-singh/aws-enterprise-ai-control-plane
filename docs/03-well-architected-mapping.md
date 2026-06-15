@@ -9,6 +9,8 @@
 
 ## Security
 
+See the [security model](04-security-model.md) for the detailed control architecture, ownership boundaries, tradeoffs, and validation checklist.
+
 - Multi-account isolation
 - AWS IAM Identity Center
 - AWS Organizations service control policies (SCPs) and AWS IAM permission boundaries

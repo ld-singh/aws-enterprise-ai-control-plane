@@ -69,3 +69,7 @@ The AI control plane must answer:
 | Distributed training | Amazon SageMaker HyperPod or Amazon EKS | Depends on team maturity and workload scale |
 | HPC batch | AWS ParallelCluster + Slurm | Better cultural and scheduler fit for HPC-style workloads |
 | GPU-heavy AI factory | NVIDIA stack / Neo Cloud / on-prem | Best for sustained GPU-heavy platforms and specialized networking |
+
+## Related Controls
+
+See the [security model](04-security-model.md) for shared controls and the platform-specific controls applied to each workload placement path.
