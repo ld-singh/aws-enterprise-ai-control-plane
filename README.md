@@ -1,5 +1,7 @@
 # AWS Enterprise AI Control Plane
 
+![AWS Enterprise AI Control Plane social preview](docs/assets/social-preview.png)
+
 ## Architecture thesis
 
 This repository is a reference architecture for governing and placing enterprise AI workloads on AWS. Its thesis is simple: model access is only one part of an AI platform; the durable architecture is the control plane around identity, data access, workload placement, agent tools, inference, accelerator capacity, observability, security, reliability, and cost.
