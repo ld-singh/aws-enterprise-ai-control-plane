@@ -147,6 +147,7 @@ flowchart TB
     end
 
     subgraph Accounts[Account Boundaries]
+      AccountHub[Account Governance Boundary]
       Security[Security Tooling]
       Logs[Log Archive]
       Network[Network]
@@ -155,30 +156,48 @@ flowchart TB
       Data[Data]
     end
 
-    OU --> Accounts
-    HumanRoles --> Accounts
+    OU --> AccountHub
+    HumanRoles --> AccountHub
+    AccountHub --> Security
+    AccountHub --> Logs
+    AccountHub --> Network
+    AccountHub --> Platform
+    AccountHub --> Workload
+    AccountHub --> Data
 
     subgraph Controls[Shared Workload Controls]
+      SharedHub[Shared Control Baseline]
       Roles[AWS IAM Workload Roles]
       Private[Private Subnets and VPC Endpoints]
       Keys[AWS KMS Keys]
       Secrets[AWS Secrets Manager]
+      SharedHub --> Roles
+      SharedHub --> Private
+      SharedHub --> Keys
+      SharedHub --> Secrets
     end
 
     subgraph PlatformControls[Placement-Specific Controls]
+      RuntimeHub[Runtime Control Selection]
       Bedrock[Amazon Bedrock]
       Agent[Amazon Bedrock AgentCore or Custom Agent]
       EKS[Amazon EKS]
       SageMaker[Amazon SageMaker AI and HyperPod]
       Slurm[AWS ParallelCluster and Slurm]
       External[External Capacity Boundary]
+      RuntimeHub --> Bedrock
+      RuntimeHub --> Agent
+      RuntimeHub --> EKS
+      RuntimeHub --> SageMaker
+      RuntimeHub --> Slurm
+      RuntimeHub --> External
     end
 
-    Platform --> Controls
-    Workload --> Controls
-    Data --> Controls
-    Controls --> PlatformControls
-    PlatformControls --> Audit[Central Audit Evidence]
+    Platform --> SharedHub
+    Workload --> SharedHub
+    Data --> SharedHub
+    SharedHub --> RuntimeHub
+    RuntimeHub --> Audit[Central Audit Evidence]
     Security --> Audit
     Audit --> Logs
 ```
@@ -188,13 +207,15 @@ flowchart TB
 Read the diagram from top to bottom:
 
 1. **Workforce identity enters through AWS IAM Identity Center.** The enterprise identity provider remains the source of workforce identity, while AWS IAM Identity Center maps users and groups to account roles.
-2. **The landing zone establishes the outer guardrails.** AWS Organizations and AWS Control Tower organize accounts into OUs and apply SCPs and baseline controls. These controls limit what member accounts can do; they do not grant workload access.
-3. **Accounts create ownership and blast-radius boundaries.** Security tooling, logs, networking, platform services, workload resources, and data can be separated according to the organization's operating model and risk requirements.
-4. **Shared controls apply before platform-specific controls.** Workload roles, private connectivity, encryption keys, and secrets management are required across the portfolio, although their implementation differs by service.
-5. **Placement determines the runtime control set.** Amazon Bedrock, agent runtimes, Amazon EKS, Amazon SageMaker AI, Slurm, and external capacity each have different customer responsibilities.
-6. **Every path produces centralized audit evidence.** Platform events and security decisions flow to protected audit storage that workload administrators cannot modify.
+2. **The landing zone establishes the outer guardrails.** AWS Organizations and AWS Control Tower organize accounts into OUs and apply SCPs and baseline controls. Those controls flow into the account governance boundary. They limit what member accounts can do; they do not grant workload access.
+3. **Accounts create ownership and blast-radius boundaries.** Security tooling, logs, networking, platform services, workload resources, and data accounts are examples of boundaries an organization may use according to its operating model and risk requirements.
+4. **Shared controls apply before runtime-specific controls.** Platform, workload, and data accounts feed into the shared control baseline: workload roles, private connectivity, encryption keys, and secrets management.
+5. **Placement determines the runtime control set.** The runtime control selection then fans out to Amazon Bedrock, agent runtimes, Amazon EKS, Amazon SageMaker AI, Slurm, or external capacity, each with different customer responsibilities.
+6. **Audit evidence is centralized.** Runtime control decisions and security-tooling events flow to protected audit storage that workload administrators cannot modify.
 
-The arrows represent governance and evidence flow, not application traffic. The account boxes are responsibility boundaries rather than required account names or a fixed account count. Preserve an established landing-zone taxonomy unless a new boundary is justified.
+The arrows represent governance, control selection, and evidence flow, not application traffic. The account boxes are responsibility boundaries rather than required account names or a fixed account count. Preserve an established landing-zone taxonomy unless a new boundary is justified.
+
+The hub boxes, such as **Account Governance Boundary**, **Shared Control Baseline**, and **Runtime Control Selection**, are diagram anchors. They make the control flow explicit and avoid treating Mermaid subgraphs as nodes.
 
 ## Organization and Landing Zone
 
