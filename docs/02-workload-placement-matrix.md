@@ -72,6 +72,8 @@ No option removes operational responsibility. Managed services move the responsi
 
 ## Related Decisions
 
+See the [security model](04-security-model.md) for the shared controls and the platform-specific control set associated with each placement path.
+
 - [ADR-001: Amazon Bedrock vs Amazon EKS for Inference Workloads](decision-records/adr-001-bedrock-vs-eks-inference.md)
 - [ADR-002: Amazon Bedrock AgentCore vs Custom Agent Runtime](decision-records/adr-002-agentcore-vs-custom-agent-runtime.md)
 - [ADR-003: Kubernetes vs Slurm for AI Workloads](decision-records/adr-003-kubernetes-vs-slurm.md)
