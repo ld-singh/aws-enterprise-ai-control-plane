@@ -29,6 +29,7 @@ The design uses a portfolio approach rather than forcing every workload onto one
 | [Workload placement matrix](docs/02-workload-placement-matrix.md) | Compare managed services, Kubernetes, ML platforms, HPC, and accelerators |
 | [Well-Architected mapping](docs/03-well-architected-mapping.md) | Review the design against AWS Well-Architected concerns |
 | [Security model](docs/04-security-model.md) | Review shared and platform-specific controls for each workload placement path |
+| [Observability model](docs/05-observability-model.md) | Review metrics, logs, traces, SLOs, showback, and incident signals |
 | [Architecture decision records](docs/decision-records/) | Inspect the major platform and accelerator tradeoffs |
 | [Runbooks](docs/runbooks/) | See example operational response procedures |
 | [Diagrams](docs/diagrams/) | Find architecture diagram notes and assets |
