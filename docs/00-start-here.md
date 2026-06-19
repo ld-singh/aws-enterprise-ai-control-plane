@@ -31,6 +31,7 @@ It does not provide a turnkey deployment, prescribe one platform for every workl
 | [Workload placement matrix](02-workload-placement-matrix.md) | Which platform and accelerator fit a given workload and operating model? |
 | [Well-Architected mapping](03-well-architected-mapping.md) | How does the design address operational excellence, security, reliability, performance, cost, and sustainability? |
 | [Security model](04-security-model.md) | Which shared and platform-specific controls apply to each workload placement path? |
+| [Observability model](05-observability-model.md) | Which metrics, logs, traces, SLOs, and showback signals are required by each workload path? |
 | [Decision records](decision-records/) | Why were the major platform boundaries and defaults selected? |
 | [Runbooks](runbooks/) | What would example operational response procedures look like? |
 | [Diagrams](diagrams/) | Where are the visual architecture materials described? |
@@ -42,7 +43,7 @@ It does not provide a turnkey deployment, prescribe one platform for every workl
 | A quick orientation | The README's **Architecture thesis** and **Architecture scope** sections |
 | 5 minutes | The [reference architecture](01-reference-architecture.md), then the [placement matrix](02-workload-placement-matrix.md) |
 | A platform decision to make | The [placement matrix](02-workload-placement-matrix.md) and relevant [decision record](decision-records/) |
-| A design review to prepare | The [Well-Architected mapping](03-well-architected-mapping.md), [security model](04-security-model.md), then the [runbooks](runbooks/) |
+| A design review to prepare | The [Well-Architected mapping](03-well-architected-mapping.md), [security model](04-security-model.md), [observability model](05-observability-model.md), then the [runbooks](runbooks/) |
 
 ## How to use this material
 

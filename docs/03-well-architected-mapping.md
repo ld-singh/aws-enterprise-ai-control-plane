@@ -2,6 +2,8 @@
 
 ## Operational Excellence
 
+See the [observability model](05-observability-model.md) for the telemetry architecture, core SLIs, dashboard model, tenant showback, and incident-response signals.
+
 - Runbooks for inference latency, agent tool failure, GPU saturation, data ingestion failure, and tenant cost spikes
 - Change management via ADRs
 - SLOs for TTFT, latency, error rate, queue wait time, and cost per request
@@ -31,6 +33,8 @@ See the [security model](04-security-model.md) for the detailed control architec
 
 ## Performance Efficiency
 
+See the [observability model](05-observability-model.md) for TTFT, latency, tokens/sec, queue wait time, and accelerator-utilization signals.
+
 - Model placement strategy
 - Batch vs online workload separation
 - GPU utilization tracking
@@ -39,6 +43,8 @@ See the [security model](04-security-model.md) for the detailed control architec
 - Workload routing between Amazon Bedrock, Amazon EKS, Amazon SageMaker AI, and HPC platforms
 
 ## Cost Optimization
+
+See the [observability model](05-observability-model.md) for cost-per-request measurement and tenant-level showback.
 
 - Cost allocation tags
 - Tenant-level chargeback/showback

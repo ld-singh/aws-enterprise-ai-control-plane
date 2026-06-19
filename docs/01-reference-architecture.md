@@ -73,3 +73,5 @@ The AI control plane must answer:
 ## Related Controls
 
 See the [security model](04-security-model.md) for shared controls and the platform-specific controls applied to each workload placement path.
+
+See the [observability model](05-observability-model.md) for metrics, logs, traces, SLOs, tenant showback, and incident-response signals across the same workload placement paths.
